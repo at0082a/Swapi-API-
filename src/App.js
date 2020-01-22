@@ -3,6 +3,7 @@ import ListPeople from "./components/ListPeople";
 import ListPlanets from "./components/ListPlanets";
 import SearchPeople from "./components/SearchPeople";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from "./components/navbar";
 import './App.css';
 
 class App extends React.Component {
@@ -15,22 +16,34 @@ class App extends React.Component {
   }
 
   componentDidMount() { 
-    fetch("http://localhost:3001/people", {
+    Promise.all([
+      fetch("http://localhost:3001/people", {
+            mode: 'cors',
+            headers: {
+            'Content-Type' : 'application/json'
+            }
+        }),
+      fetch("http://localhost:3001/planets", {
           mode: 'cors',
           headers: {
           'Content-Type' : 'application/json'
           }
       })
-        .then (res => res.json())
-        .then(data => this.setState({
-          people:[...data.data]
-      }));
+    ])
+    .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
+    .then(([data1, data2]) => 
+      this.setState({
+        people:[...data1.data],
+        planets: [...data2.data]
+      })
+    );
   }
 
   render () {
-    console.log(this.state.people);
+    console.log(this.state.planets)
     return (
       <main className="page bg-white">
+        <Navbar/>
         <div className="container">
           <div className="row">
               <div className="col-md-12 bg-white">
@@ -41,7 +54,6 @@ class App extends React.Component {
                   {/* <SearchPeople/> */}
                   <ListPeople people={this.state.people}/>
                   {/* <ListPlanets/>  */}
-                  <div>SWAPIIIII</div>
                 </div>
               </div>
           </div>
