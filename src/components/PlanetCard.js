@@ -14,33 +14,41 @@ export default class Planet extends React.Component {
       avatar: '',
       alt: 'planet'
     };
+    this.numberWithCommas = this.numberWithCommas.bind(this);
   }
 
-  async componentDidMount() {
-    Promise.all(
-      this.props.residents.map(url =>
-        fetch(url)
-          .then(res => res.json())
-          .then(obj => obj.name)
-      )
-    ).then(residents => {
-      this.setState({
-        residents: [].concat(...residents)
+    async componentDidMount() {
+      Promise.all(
+        this.props.residents.map(url =>
+          fetch(url)
+            .then(res => res.json())
+            .then(obj => obj.name)
+        )
+      ).then(residents => {
+        this.setState({
+          residents: [].concat(...residents)
       });
     });
 
-    if (this.props.climate.includes("arid")) {
-      this.setState({avatar: arid});
-    } else if (this.props.climate.includes("frozen")) {
-      this.setState({avatar: frozen});
-    } else if (this.props.climate.includes("tropical")) {
-      this.setState({avatar: palmTree});
-    } else {
-      this.setState({avatar: temperate});
-    }
-  }
+      if (this.props.climate.includes("arid")) {
+        this.setState({avatar: arid});
+      } else if (this.props.climate.includes("frozen")) {
+        this.setState({avatar: frozen});
+      } else if (this.props.climate.includes("tropical")) {
+        this.setState({avatar: palmTree});
+      } else {
+        this.setState({avatar: temperate});
+      }
+    } 
 
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  
   render () {
+    let population = this.numberWithCommas(this.props.population);
+    let diameter = this.numberWithCommas(this.props.diameter);
+    let orbit = this.numberWithCommas(this.props.orbital);
     return (
       <div className="card">
         <div className="card-header bg-success text-white">
@@ -52,12 +60,17 @@ export default class Planet extends React.Component {
             <img className="avatar-image" src={this.state.avatar} alt={this.state.alt}/>
           </div>
         </div>
-        <div className="item-info container-fluid">
+        <div className="item-info container-fluid justify-content-center">
           <div className="row">
             <div className="col-sm">
               <p> Rotation Period: {this.props.rotation_period} hrs </p>
-              <p> Population: {this.props.population}</p>
-              <p> Diameter: {this.props.diameter} km </p>
+              <p> Population: {population}</p>
+              <p> Diameter: {diameter} km </p>
+            </div>
+            <div className="col-sm">
+              <p> Surface Water: {this.props.water}% </p>
+              <p> Orbital Pd: {orbit} days</p>
+              <p> Terrain: {this.props.terrain} </p>
             </div>
             <div className="col-sm">
              {

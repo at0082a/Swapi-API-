@@ -10,6 +10,7 @@
 
 .header-text {
    display: "inline-block";
+   font-family: 'Roboto', sans-serif;
    margin-left: 0;
    float: left;
    position: relative;
@@ -18,8 +19,6 @@
 .avatar {
   float: right; 
   display: "inline-block";
-  
-  /* margin-bottom: 2.5% */
 }
 
 .avatar-image {

@@ -16,6 +16,9 @@ export default class PlanetList extends React.Component {
                 residents={item.residents}
                 films={item.films}
                 diameter={item.diameter}
+                orbital={item.orbital_period}
+                water= {item.surface_water}
+                terrain= {item.terrain}
               />
             </div>
            )

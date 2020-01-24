@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import ShipCard from "./ShipCard";
 
 export default class ShipList extends React.Component {
@@ -14,10 +14,12 @@ export default class ShipList extends React.Component {
                 model={item.model}
                 passengers={item.passengers}
                 hyperdrive_rating={item.hyperdrive_rating}
-                cargo_capacity={item.residents}
+                cargo_capacity={item.cargo_capacity}
+                class={item.starship_class}
                 films={item.films}
                 cost={item.cost_in_credits}
                 diameter={item.diameter}
+                length={item.length}
               />
             </div>
            )

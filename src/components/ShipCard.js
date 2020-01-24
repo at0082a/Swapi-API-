@@ -12,6 +12,7 @@ export default class Ship extends React.Component {
       avatar: '',
       alt: 'planet'
     };
+    this.numberWithCommas = this.numberWithCommas.bind(this);
   }
 
   async componentDidMount() {
@@ -34,7 +35,15 @@ export default class Ship extends React.Component {
     } 
   }
 
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render () {
+    let cost = this.numberWithCommas(this.props.cost);
+    let length = this.numberWithCommas(this.props.length);
+    let cargo = this.numberWithCommas(this.props.cargo_capacity);
+    let passengers = this.numberWithCommas(this.props.passengers);
     return (
       <div className="card">
         <div className="card-header bg-danger text-white">
@@ -50,10 +59,15 @@ export default class Ship extends React.Component {
           <div className="row">
             <div className="col-sm">
               <div>
-                <p> Cost: {this.props.cost} credits </p>
-                <p> Passengers: {this.props.passengers}</p>
+                <p> Cost: {cost} credits </p>
+                <p> Passengers: {passengers}</p>
                 <p> HyperDrive: {this.props.hyperdrive_rating}</p>
               </div>
+            </div>
+            <div className="col-sm">
+                <p> Length: {length} m</p>
+                <p> Class: {this.props.class}</p>
+                <p> Cargo Capacity: {cargo}</p>
             </div>
             <div className="col-sm">
               <div>
@@ -62,9 +76,7 @@ export default class Ship extends React.Component {
                 <p> {this.state.films[2]} </p>
               </div>
             </div>
-            {/* <div className="col-sm">
-              Movies
-            </div> */}
+            
           </div>
         </div>
       </div>

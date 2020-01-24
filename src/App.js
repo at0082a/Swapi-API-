@@ -71,7 +71,7 @@ class App extends React.Component {
                       <input className="button btn btn-info" type="button" value="Characters" onClick={this.handleClick}/> 
                       <input className="button btn btn-warning" type="button" value="Starships" onClick={this.handleClick}/>
                     </div>
-                    { this.state.people.length < 5 ?
+                    { this.state.people.length < 10 ?
                       <div id="loader"></div>
                       :
                       <div className="swap-lists">

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import '../styles/card.css';
 import female from '../images/newwoman.jpg';
 import male from '../images/man.jpg';
@@ -51,12 +51,7 @@ export default class Person extends React.Component {
     }
   }
 
-  render () {
-    const films = this.state.films.map((item, i)=> {
-      return (
-        <li key={i}> {item} </li>
-      )
-    })
+  render () { 
     return (
       <div className="card">
         <div className="card-header bg-primary text-white">
