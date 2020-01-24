@@ -23,6 +23,16 @@ app.get('/people', function (req, res) {
   });
 });
 
+app.get('/starships', function (req, res) {
+  axios.get(`https://swapi.co/api/starships/`)
+  .then(function (response) {
+    res.send({data: response.data.results,
+              next: response.next,
+              previous: response.previous
+    });
+  });
+});
+
 app.listen(port, function() {
   console.log("Runnning on " + port);
 });

@@ -8,7 +8,15 @@ export default class PlanetList extends React.Component {
         { this.props.planets.map((item, i) => {
            return (
             <div key={i}>
-              <PlanetCard name={item.name}/>
+              <PlanetCard 
+                name={item.name}
+                rotation_period={item.rotation_period}
+                climate={item.climate}
+                population={item.population}
+                residents={item.residents}
+                films={item.films}
+                diameter={item.diameter}
+              />
             </div>
            )
          }) 

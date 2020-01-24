@@ -4,25 +4,27 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding-left: 2em;
-  padding-right: 2em;
+  /* padding-left: 2em;
+  padding-right: 2em; */
   z-index: 9999;  
 }
   
   /* image within nav bar */
-#nav-bar .logo {    
+#navbarText {    
   height: 80px;
   width: 80px;
-  margin-right: 10px;
-  float : left;
-  position : relative 
+  display: flex;
+}
+
+.nav-link {
+  font-size: 1.5em;
 }
   
   /* text beside image in nav bar ("Tweeter") */
-#nav-bar .header {
+.navbar-brand {
   color: white;
   float: left;
   font-size: 2em;
-  top: 25%;
-  position: relative;
+  /* top: 5%;
+  position: relative; */
 }

@@ -12,7 +12,7 @@ export default class Person extends React.Component {
       species: "",
       films: [],
       avatar: female,
-      alt: "woman"
+      alt: "gender"
     };
   }
 
@@ -46,7 +46,7 @@ export default class Person extends React.Component {
       this.setState({avatar: female});
     } else if (this.props.gender === "male") {
       this.setState({avatar: male});
-    } else if (this.props.gender === "n/a") {
+    } else {
       this.setState({avatar: droid});
     }
   }
@@ -68,7 +68,7 @@ export default class Person extends React.Component {
             <img className="avatar-image" src={this.state.avatar} alt={this.state.alt}/>
           </div>
         </div>
-        <div className="container-fluid">
+        <div className="item-info container-fluid">
           <div className="row">
             <div className="col-sm">
               <p> Species: {this.state.species} </p>
@@ -81,43 +81,13 @@ export default class Person extends React.Component {
               <p> Hair Color: {this.props.hair} </p>
             </div>
             <div className="col-sm">
-              Movies
+              <p> {this.state.films[0]} </p>
+              <p> {this.state.films[1]} </p>
+              <p> {this.state.films[2]} </p>
             </div>
           </div>
         </div>
       </div>
-
-    // <div className="card">
-    //   <div className="card-header">
-    //     <ul className="nav nav-tabs card-header-tabs" id="person-details" role="tablist">
-    //       <li className="nav-item">
-    //         <a className="nav-link active" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
-    //       </li>
-    //       <li className="nav-item">
-    //         <a className="nav-link"  href="#history" role="tab" aria-controls="history" aria-selected="false">Movies</a>
-    //       </li>
-    //     </ul>
-    //   </div>
-    //   <div className= "card-body">
-    //     <h4 className="card-title"> {this.props.name} </h4>
-    //     <h6 className="card-subtitle mb-2">Homeworld: {this.state.planet}</h6>
-        
-    //     <div className="tab-content mt-3">
-    //       <div className="tab-pane active" id="description" role="tabpanel">
-    //         <p className="card-text"> Species: {this.state.species} </p>
-    //       </div>
-          
-    //       <div className="tab-pane" id="movies" role="tabpanel" aria-labelledby="history-tab">  
-    //         {films}
-    //       </div>
-          
-    //       <div className="tab-pane" id="deals" role="tabpanel" aria-labelledby="deals-tab">
-    //         <p className="card-text">Immerse yourself in the colours, aromas and traditions of Emilia-Romagna with a holiday in Bologna, and discover the city's rich artistic heritage.</p>
-    //         <a href="#" className="btn btn-danger btn-sm">Get Deals</a>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   )
  }
 }
