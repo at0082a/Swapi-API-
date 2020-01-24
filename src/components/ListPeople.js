@@ -25,17 +25,15 @@ export default class PersonList extends Component {
     );
     return (
       <div>
-        <div className="search-appointments row justify-content-center my-4">
+        <div className="row justify-content-center my-4">
           <div className="col-md-8">
             <div className="input-group">
             <input
-              id="SearchApts"
               type="text"
               className="form-control"
               placeholder="Search Characters"
               onChange={this.textChange}
             />
-            {/* <div className="searchBox"> <p > Search</p> </div> */}
             </div>
           </div>
         </div>

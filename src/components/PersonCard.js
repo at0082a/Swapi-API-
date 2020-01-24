@@ -17,7 +17,6 @@ export default class Person extends React.Component {
   }
 
   async componentDidMount() {
-    //grab homeworld and species
     Promise.all([
       fetch(this.props.homeworld),
       fetch(this.props.species)
@@ -29,7 +28,6 @@ export default class Person extends React.Component {
         species: data2.name,
     }));
 
-    //grab all movies
     Promise.all(
       this.props.films.map(url =>
         fetch(url)

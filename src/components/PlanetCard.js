@@ -4,6 +4,7 @@ import arid from "../images/desert.jpg"
 import frozen from "../images/frozen.jpg";
 import temperate from "../images/grass.jpg";
 import palmTree from "../images/palmtree.jpg";
+import swamp from "../images/swamp.jpg";
 
 export default class Planet extends React.Component {
   constructor(props) {
@@ -36,6 +37,8 @@ export default class Planet extends React.Component {
         this.setState({avatar: frozen});
       } else if (this.props.climate.includes("tropical")) {
         this.setState({avatar: palmTree});
+      } else if (this.props.climate.includes("murky")) {
+        this.setState({avatar: swamp});
       } else {
         this.setState({avatar: temperate});
       }
@@ -84,9 +87,6 @@ export default class Planet extends React.Component {
                 </div>
              }
             </div>
-            {/* <div className="col-sm">
-              Movies
-            </div> */}
           </div>
         </div>
       </div>
