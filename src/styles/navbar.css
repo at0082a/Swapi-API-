@@ -8,19 +8,11 @@
   padding-right: 2em; */
   z-index: 9999;  
 }
-  
-  /* image within nav bar */
-#navbarText {    
-  height: 80px;
-  width: 80px;
-  display: flex;
-}
 
 .nav-link {
   font-size: 1.5em;
 }
   
-  /* text beside image in nav bar ("Tweeter") */
 .navbar-brand {
   color: white;
   float: left;
