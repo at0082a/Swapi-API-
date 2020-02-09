@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/navbar";
 import './App.css';
 import './styles/buttons.css';
+import PagBar from "./components/pagination";
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class App extends React.Component {
                 </div>
           </div>
         </div>
+        <div className ='pag'><PagBar /></div>
         <div className="footer bg-primary">
         </div>
       </main>
