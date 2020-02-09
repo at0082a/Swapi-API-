@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/card.css';
-import female from '../images/newwoman.jpg';
+import female from '../images/starwarswoman.jpg';
 import male from '../images/man.jpg';
 import droid from '../images/robot.jpg';
 

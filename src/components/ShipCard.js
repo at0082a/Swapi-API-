@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/card.css';
 import dstar from "../images/deathstar.jpg";
-import falcon from "../images/millFalcon.jpg";
+import falcon from "../images/falcon-512.jpg";
 
 export default class Ship extends React.Component {
   constructor(props) {
