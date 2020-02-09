@@ -30,8 +30,8 @@ export default class Planet extends React.Component {
           residents: [].concat(...residents)
       });
     });
-
-      if (this.props.climate.includes("arid")) {
+      
+    if (this.props.climate.includes("arid")) {
         this.setState({avatar: arid});
       } else if (this.props.climate.includes("frozen")) {
         this.setState({avatar: frozen});
@@ -42,7 +42,28 @@ export default class Planet extends React.Component {
       } else {
         this.setState({avatar: temperate});
       }
+
     } 
+
+    // renderPicture() {
+    //   switch(this.props.climate.includes) {
+    //     case 'arid':
+    //       this.setState({avatar: arid});
+    //       break;
+    //     case 'frozen':
+    //       this.setState({avatar: frozen});
+    //       break;
+    //     case 'murky':
+    //       this.setState({avatar: swamp});
+    //       break;  
+    //     case 'tropical':
+    //       this.setState({avatar: palmTree});
+    //       break;
+    //     default:
+    //       this.setState({avatar: temperate});
+    //   }
+    //   return;
+    // }
 
     numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

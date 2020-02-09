@@ -55,8 +55,8 @@ export default class PersonList extends Component {
                   eyeColor={item.eye_color}
                 />
               </div>
-            )
-          }) 
+             )
+           }) 
           }   
         </div>
       </div>

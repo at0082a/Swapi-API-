@@ -10,10 +10,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/planets', function (req, res) {
+  let next = '';
+  let previous = '';
   axios.get('https://swapi.co/api/planets')
   .then(function (response) {
-    res.send({data: response.data.results});
+    next = response.data.next;
+    previous = response.data.previous;
+    res.send({ data: response.data.results });
   });
+  console.log(next);
+  console.log(previous);
 });
 
 app.get('/people', function (req, res) {

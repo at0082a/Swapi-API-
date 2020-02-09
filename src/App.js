@@ -21,9 +21,9 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  async componentDidMount() { 
+  async componentDidMount() {
       Promise.all([
-        fetch("http://localhost:3001/people?page=1", {
+        fetch("http://localhost:3001/people", {
                 mode: 'cors',
                 headers: {
                 'Content-Type' : 'application/json'
@@ -43,7 +43,7 @@ class App extends React.Component {
         })
       ])
       .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
-      .then(([data1, data2, data3]) => 
+      .then(([data1, data2, data3]) =>
         this.setState({
           people:[...data1.data],
           planets: [...data2.data],
@@ -67,8 +67,8 @@ class App extends React.Component {
                 <div className="col-md-12 bg-white">
                   <div className="container">
                     <div className="app-buttons">
-                      <input className="button btn btn-dark" type="button" value="Planets" onClick={this.handleClick}/> 
-                      <input className="button btn btn-info" type="button" value="Characters" onClick={this.handleClick}/> 
+                      <input className="button btn btn-dark" type="button" value="Planets" onClick={this.handleClick}/>
+                      <input className="button btn btn-info" type="button" value="Characters" onClick={this.handleClick}/>
                       <input className="button btn btn-warning" type="button" value="Starships" onClick={this.handleClick}/>
                     </div>
                     { this.state.people.length < 10 ?
@@ -91,7 +91,6 @@ class App extends React.Component {
         <div className="footer bg-primary">
         </div>
       </main>
-
     );
   }
 }

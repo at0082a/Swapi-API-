@@ -4,8 +4,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  /* padding-left: 2em;
-  padding-right: 2em; */
   z-index: 9999;  
 }
 
@@ -17,6 +15,4 @@
   color: white;
   float: left;
   font-size: 2em;
-  /* top: 5%;
-  position: relative; */
 }

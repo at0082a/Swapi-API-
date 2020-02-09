@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import PlanetCard from "./PlanetCard";
 
 export default class PlanetList extends React.Component {
